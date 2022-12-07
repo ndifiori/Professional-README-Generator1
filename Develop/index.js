@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./Develop/utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 
 // TODO: Create an array of questions for user input - DONE
@@ -75,12 +75,12 @@ function writeToFile(fileName, data) {
 // use inquirer promise documentation to take in questions from the array and THEN lets use the users responses 
 // console log that we are generating user readme file
 // now we need to write the file (README.md) and then we need a data parameter
-// in this case the data parameter is going to use our inquirerResponses as the data parameter to our linked generateMarkdown 
+  // in this case the data parameter is going to use our inquirerResponses as the data parameter to our linked generateMarkdown 
 
 function init() {
   inquirer.prompt(questions).then((inquirerResponses) => {
     console.log('Generating README');
-    writeToFile('README.md', generateMarkdown({ ...inquirerResponses }));
+    writeToFile('README.md', generateMarkdown({...inquirerResponses}));
   });
 }
 
